@@ -1,0 +1,26 @@
+@import './_variables.scss';
+
+.clickBoard{
+    grid-area: clickBoard;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clickBoard__cookie{
+    background: url('../images/cookie.png');
+    background-size: cover;
+    width: 230px;
+    height: 228px;
+    cursor: pointer;
+}
+
+.clickBoard__cookie:hover{
+    transform: scale(1.1);
+    transition-duration: 200ms;
+}
+
+.clickBoard__cookie:active{
+    transform: scale(1.2);
+    transition-duration: 200ms;
+}

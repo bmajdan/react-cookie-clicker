@@ -1,0 +1,44 @@
+@import './_variables.scss';
+
+.notification__top{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, -100px);
+    border: 1.5px solid black;
+    border-top: 0px;
+    height: 100px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: $disabled-color;
+    transition-duration: 500ms;
+}
+
+.notification__top--visible{
+    transform: translate(-50%, 0px);
+    transition-duration: 500ms;
+}
+
+.notification__left{
+    position: absolute;
+    top: 50px;
+    left: -200px;
+    border: 1.5px solid black;
+    border-left: 0px;
+    height: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    background: $disabled-color;
+    transition-duration: 500ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification__left--visible{
+    transform: translate(200px, 0px);
+    transition-duration: 500ms;
+}

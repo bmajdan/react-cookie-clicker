@@ -1,0 +1,105 @@
+@import './_variables.scss';
+
+.shop{
+    grid-area: shop;
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-left: 2px solid black;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.shop__header{
+    padding-bottom: 10px;
+    width: auto;
+    display: inline-block;
+    padding-right: 40px;
+    border-bottom: 2px solid black;
+}
+
+.shop__product{
+    display: grid;
+    grid-template-areas:
+      "icon name amount"
+      "icon price amount";
+    grid-template-columns: 1fr 5fr 1fr;
+    
+    border: 1.5px solid black;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.shop__product--disabled{
+    cursor: not-allowed;
+    background: $disabled-color;
+}
+
+.shop__product:hover{
+    border: 1.5px solid $hover-color;
+}
+
+.shop__product__information{
+    box-sizing: border-box;
+    visibility: hidden;
+    width: 300px;
+    height: 150px;
+    background-color: $tooltip-color;
+    color: #fff;
+    text-align: center;
+    border: 1.5px solid black;
+    padding: 20px;
+    position: absolute;
+    top: inherit;
+    left: inherit;
+    transform: translate(-300px, -0.5px);
+    z-index: 999;
+}
+
+.shop__product__information__icon{
+    font-size: 1.8em;
+}
+
+.shop__product:hover .shop__product__information{
+    visibility: visible;
+}
+
+.shop__product__image{
+    grid-area: icon;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop__product__image__icon{
+    font-size: 1.8em;
+}
+
+.shop__product__name{
+    grid-area: name;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.shop__product_price{
+    grid-area: price;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.shop__product_price__icon{
+    color: $cookie-color;
+}
+
+.shop__product_amount{
+    grid-area: amount;
+    border-left: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}

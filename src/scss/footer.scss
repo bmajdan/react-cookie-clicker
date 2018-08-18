@@ -1,0 +1,17 @@
+@import './_variables.scss';
+
+.footer{
+    grid-area: footer;
+    border-top: 1px solid black;
+    padding: 5px;
+    position: relative;
+}
+
+.footer__reset{
+    position: absolute;
+    right: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    top: 7px;
+    cursor: pointer;
+}
