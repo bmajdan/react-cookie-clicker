@@ -11,8 +11,8 @@
 ***Features:***
  - shop,
  - achievements,
- - auto per second clicks
- - player click frequency
- - player levels
- - auto save
-- reset game
+ - auto per second clicks,
+ - player click frequency,
+ - player levels,
+ - auto save,
+ - reset game
