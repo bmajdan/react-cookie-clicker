@@ -68,7 +68,10 @@ class Shop extends Component {
 
         return (
             <div className='shop'>
-                <h1 className='shop__header'>Shop:</h1>
+                <div className='shop__header'>
+                    <h1 className='shop__header__element'>Shop:</h1>
+                </div>
+                
                 
                 <div className="shop__container">
                     {products_containter}

@@ -12,7 +12,7 @@ class Achievement extends Component {
 
             if(children){
                 let rect = element.getBoundingClientRect();
-                children.style.top = '-55px'
+                children.style.top = '-56.5px'
                 children.style.left = rect.left + 'px'
             }
             

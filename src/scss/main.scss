@@ -42,7 +42,7 @@ body{
     display: grid;
     height: 100vh;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 0.5fr 1fr 0.8fr auto;
+    grid-template-rows: 0.5fr 1fr 1fr auto;
     text-align: center;
     grid-template-areas: 
     "header shop"

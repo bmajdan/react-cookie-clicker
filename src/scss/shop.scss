@@ -9,9 +9,9 @@
 }
 
 .shop__container{
-    height: calc(100% - 100px);
+    height: 100%;
     overflow-y: scroll;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
     padding-left: 1em;
     padding-right: 1em;
     width: 100%;
@@ -20,6 +20,13 @@
 }
 
 .shop__header{
+    width: 100%;
+    position: relative;
+    z-index: 999;
+    background: $background-shop;
+}
+
+.shop__header__element{
     padding-bottom: 10px;
     width: auto;
     display: inline-block;
@@ -39,6 +46,7 @@
     margin-bottom: 10px;
     cursor: pointer;
     position: static;
+    z-index: 1;
 }
 
 .shop__product--disabled{

@@ -26,9 +26,9 @@
     grid-template-columns: repeat(10, auto);
     grid-template-rows: auto auto;
 
-    height: calc(100% - 100px);
+    height: 100%;
+    padding-bottom: 20px;
     overflow-y: scroll;
-    padding-bottom: 100px;
     padding-left: 1em;
     padding-right: 1em;
     width: 100%;

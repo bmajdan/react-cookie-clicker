@@ -18,7 +18,7 @@ class Product extends Component {
             let children = element.children[0];
             let rect = element.getBoundingClientRect();
             children.style.top = rect.top + 'px'
-            children.style.left = '-283px'
+            children.style.left = '-281.5px'
         })
     }
 
