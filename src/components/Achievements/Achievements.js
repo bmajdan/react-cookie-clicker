@@ -29,7 +29,9 @@ class Achievements extends Component {
 
         return (
             <div className='achievements'>
-                <h1 className='achievements__header'>Achievements:</h1>
+                <div className='achievements__header'>
+                    <h1 className='achievements__header__element'>Achievements:</h1>
+                </div>
 
                 <div className='achievements__container'>
                     {achievements_container}

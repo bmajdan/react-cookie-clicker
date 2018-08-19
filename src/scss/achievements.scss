@@ -9,7 +9,14 @@
     position: relative;
 }
 
-.achievements__header{
+.achievements__header_{
+    width: 100%;
+    position: relative;
+    z-index: 999;
+    background: $background-secondary;
+}
+
+.achievements__header__element{
     padding-bottom: 10px;
     width: auto;
     display: inline-block;
