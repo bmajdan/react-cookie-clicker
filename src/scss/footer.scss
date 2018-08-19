@@ -2,16 +2,20 @@
 
 .footer{
     grid-area: footer;
-    border-top: 1px solid black;
-    padding: 5px;
+    border: 1.5px solid black;
+    border-bottom: none;
+    padding: 2px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    background: $background-primary;
 }
 
 .footer__reset{
     position: absolute;
     right: 20px;
-    font-size: 0.8em;
     font-weight: bold;
-    top: 7px;
     cursor: pointer;
 }

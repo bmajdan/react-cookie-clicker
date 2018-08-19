@@ -8,6 +8,8 @@
     border-top: 2px solid black;
     overflow-x: hidden;
     overflow-y: scroll;
+    background: $background-secondary;
+    font-weight: normal;
 }
 
 .achievements__header{
@@ -36,7 +38,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    
+    background: $milk-color;
 }
 
 .achievements__item__image__icon{
@@ -84,5 +86,4 @@
 .achievements__item--disabled{
     cursor: not-allowed;
     background: $disabled-color;
-    font-weight: bold;
 }

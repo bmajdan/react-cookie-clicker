@@ -8,6 +8,7 @@
     border-left: 2px solid black;
     overflow-x: hidden;
     overflow-y: scroll;
+    background: $background-shop;
 }
 
 .shop__header{
@@ -24,7 +25,7 @@
       "icon name amount"
       "icon price amount";
     grid-template-columns: 1fr 5fr 1fr;
-    
+    background: $milk-color;
     border: 1.5px solid black;
     margin-bottom: 10px;
     cursor: pointer;
