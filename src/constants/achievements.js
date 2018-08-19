@@ -19,7 +19,7 @@ const Achievements = [
         name: "1000 clicks",
         icon: 'hand-point-up',
         icon_var: 'faHandPointUp',
-        description: '100 clicks.',
+        description: '1000 clicks.',
         type: 'cookie_player_click_counter',
         value: 1000
     },
@@ -35,7 +35,7 @@ const Achievements = [
         name: "8 clicks/second",
         icon: 'mouse-pointer',
         icon_var: 'faMousePointer',
-        description: '5 clicks/second',
+        description: '8 clicks/second',
         type: 'cookie_player_click_frequency',
         value: 8
     },
@@ -48,12 +48,12 @@ const Achievements = [
         value: 10
     },
     {
-        name: "10 cookies",
+        name: "100 cookies",
         icon: 'cookie',
         icon_var: 'faCookie',
         description: '100 cookies',
         type: 'cookie_amount',
-        value: 10
+        value: 100
     },
     {
         name: "1000 cookies",
@@ -91,55 +91,55 @@ const Achievements = [
         name: "15 level",
         icon: 'angle-double-up',
         icon_var: 'faAngleDoubleUp',
-        description: '10 player level',
+        description: '15 player level',
         type: 'player_level',
         value: 15
     },
     {
-        name: "1 Gold Click",
+        name: "1 Golden Click",
         icon: 'piggy-bank',
         icon_var: 'faPiggyBank',
-        description: '1 gold click',
+        description: '1 golden click',
         type: 'cookie_gold_click_counter',
         value: 1
     },
     {
-        name: "10 Gold Click",
+        name: "10 Golden Clicks",
         icon: 'piggy-bank',
         icon_var: 'faPiggyBank',
-        description: '10 gold clicks',
+        description: '10 golden clicks',
         type: 'cookie_gold_click_counter',
         value: 10
     },
     {
-        name: "100 Gold Click",
+        name: "100 Golden Clicks",
         icon: 'piggy-bank',
         icon_var: 'faPiggyBank',
-        description: '100 gold clicks',
+        description: '100 golden clicks',
         type: 'cookie_gold_click_counter',
         value: 100
     },
     {
-        name: "1 Gold Time",
+        name: "1 Golden Time",
         icon: 'stopwatch',
         icon_var: 'faStopwatch',
-        description: '1 gold time',
+        description: '1 golden time',
         type: 'cookie_gold_time_counter',
         value: 1
     },
     {
-        name: "10 Gold Time",
+        name: "10 Golden Times",
         icon: 'stopwatch',
         icon_var: 'faStopwatch',
-        description: '10 gold times',
+        description: '10 golden times',
         type: 'cookie_gold_time_counter',
         value: 10
     },
     {
-        name: "100 Gold Time",
+        name: "100 Golden Time",
         icon: 'stopwatch',
         icon_var: 'faStopwatch',
-        description: '100 gold times',
+        description: '100 golden times',
         type: 'cookie_gold_time_counter',
         value: 100
     },
@@ -152,7 +152,7 @@ const Achievements = [
         value: 1
     },
     {
-        name: "10 Bought Item",
+        name: "10 Bought Items",
         icon: 'shopping-cart',
         icon_var: 'faShoppingCart',
         description: '10 bought items',
@@ -160,7 +160,7 @@ const Achievements = [
         value: 10
     },
     {
-        name: "100 Bought Item",
+        name: "100 Bought Items",
         icon: 'shopping-cart',
         icon_var: 'faShoppingCart',
         description: '100 bought items',
