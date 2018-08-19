@@ -6,8 +6,6 @@ export class NotificationTop extends Component {
 
         const {notification_show} = this.props;
 
-        console.log(notification_show)
-
         return (
             <div className={notification_show ? 'notification__top notification__top--visible' : 'notification__top'}>
                 <h3>{this.props.notification_text}</h3>

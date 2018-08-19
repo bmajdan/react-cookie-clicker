@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import _PRODUCTS from '../../constants/products';
-import { encode, decode } from '../libs';
 
 import '../../css/shop.css';
 
@@ -10,14 +9,15 @@ class Shop extends Component {
     constructor(){
         super();
 
-        if(localStorage.getItem('cookieClickerShop'))
-            this.state = {
-                products: JSON.parse(decode(localStorage.getItem('cookieClickerShop')))
-            };
-        else
-            this.state = {
-                products: _PRODUCTS
-            }
+        this.state = { products: _PRODUCTS }
+    }
+
+    componentDidMount(){
+        if(this.props.products.length !== 0){
+            this.setState({
+                products: this.props.products
+            })
+        }
     }
 
     buyItem = (item, price) => {
@@ -29,10 +29,9 @@ class Shop extends Component {
         })
 
         this.setState({products: products}, () => {
-            localStorage.setItem('cookieClickerShop', encode(JSON.stringify(this.state.products)));
+            this.props.onClick(item, price, products);
         })
         
-        this.props.onClick(item, price);
     }
 
     render() {

@@ -37,6 +37,20 @@ export const buyItem = (item, price, items) => {
     }
 }
 
+export const checkSettingsImport = ( org, imp ) => {
+    let keys_org = Object.keys(org);
+    let keys_imp = Object.keys(imp);
+
+    if (keys_org === keys_imp) return true;
+    if (keys_org == null || keys_imp == null) return false;
+    if (keys_org.length !== keys_imp.length) return false;
+
+    for (let i = 0; i < keys_org.length; ++i) {
+        if (keys_org[i] !== keys_imp[i]) return false;
+    }
+    return true;
+}
+
 export const chanceCalculation = ( chance ) => {
     return Math.random() <= chance
 }

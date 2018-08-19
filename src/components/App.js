@@ -7,35 +7,35 @@ import Footer from './Footer/Footer';
 import {NotificationTop, NotificationLeft} from './Notification/Notification';
 
 import _SETTINGS from '../constants/settings';
-import { buyItem, levelCalculation, chanceCalculation, achievementsChecker, encode, decode } from './libs';
+import { checkSettingsImport, buyItem, levelCalculation, chanceCalculation, achievementsChecker, encode, decode } from './libs';
 
 class App extends Component {
   constructor(){
     super();
 
     if(localStorage.getItem('cookieClicker'))
-      this.state = JSON.parse(decode(localStorage.getItem('cookieClicker')));
+      if(checkSettingsImport(_SETTINGS, JSON.parse(decode(localStorage.getItem('cookieClicker')))))
+        this.state = JSON.parse(decode(localStorage.getItem('cookieClicker')));
+      else
+        this.state = _SETTINGS
     else
       this.state = _SETTINGS
 
-    this.cookie_gold_time_active = false;
     this.notification_top_show = false;
-    this.notification_top_text = '';
-    this.notification_left_show = false;
-    this.notification_left_text = 'Gold Time';
     this.start = 0
     this.clicks = 0
   }
 
   gold_time = () => {
-
-    this.cookie_gold_time_active = true;
-    this.notification_left_show = true;
-    this.notification_left_text = 'Golden Time!';
     
     let temp_per_sec_click = this.state.cookie_per_second_value;
     clearInterval(this.cookie_per_second_timer);
-    this.setState({ cookie_per_second_value: this.state.cookie_gold_time_value});
+    this.setState({ 
+      cookie_per_second_value: this.state.cookie_gold_time_value,
+      cookie_gold_time_active: true,
+      notification_left_show: true,
+      notification_left_text: 'Golden Time!'
+    });
 
     let timeleft = this.state.cookie_gold_time_duration * 10;
 
@@ -46,10 +46,11 @@ class App extends Component {
       if(timeleft <= 0){
         clearInterval(this.cookie_gold_time_timer);
         this.cookie_per_second_timer = setInterval(this.cookiePerSecondClick, 100);
-        this.setState({ cookie_per_second_value: temp_per_sec_click});
-        this.cookie_gold_time_active = false;
-
-        this.notification_left_show = false;
+        this.setState({ 
+          cookie_per_second_value: temp_per_sec_click,
+          cookie_gold_time_active: false,
+          notification_left_show: false
+        });
       }
         
     }, 100)
@@ -82,18 +83,22 @@ class App extends Component {
       if(chanceCalculation(this.state.cookie_gold_click_chance)){
         add_value = this.state.cookie_gold_click_value;
 
-        this.notification_left_show = true;
-        this.notification_left_text = 'Golden Click!';
-
-        setTimeout(() => {this.notification_left_show = false;}, 3000);
-
         this.setState(prevState => ({
-          cookie_gold_click_counter: prevState.cookie_gold_click_counter + 1
+          cookie_gold_click_counter: prevState.cookie_gold_click_counter + 1,
+          notification_left_show: true,
+          notification_left_text: 'Golden Click!'
         }))
+
+        setTimeout(() => {
+          this.setState({
+            notification_left_show: false,
+            notification_left_text: ''
+          }
+        )}, 2000);
       }
 
       if(chanceCalculation(this.state.cookie_gold_time_chance)){
-        if(!this.cookie_gold_time_active){
+        if(!this.state.cookie_gold_time_active){
           this.setState(prevState => ({
             cookie_gold_time_counter: prevState.cookie_gold_time_counter + 1
           }))
@@ -119,9 +124,17 @@ class App extends Component {
       }
 
       if(toAdd.name){
-        this.notification_top_show = true;
-        this.notification_top_text = 'New Achievement get!';
-        setTimeout(() => {this.notification_top_show = false;}, 3000);
+        this.setState({
+          notification_top_show: true,
+          notification_top_text: 'New Achievement get!'
+        })
+        
+        setTimeout(() => {
+          this.setState({
+            notification_top_show: false,
+            notification_top_text: ''
+          })
+        }, 3000);
       }
 
       this.setState(prevState => ({
@@ -140,14 +153,15 @@ class App extends Component {
     }
   }
 
-  cookieBuyItem = (item, price) => {
+  cookieBuyItem = (item, price, products) => {
     const changeState = buyItem(item, price, this.state.items)
 
     this.setState(prevState => ({ 
       items: changeState.item,
       cookie_amount: prevState.cookie_amount - changeState.price,
       cookie_per_second_value: changeState.per_sec_multi,
-      items_buy_counter: prevState.items_buy_counter + 1
+      items_buy_counter: prevState.items_buy_counter + 1,
+      products: products
     }), () => {
       localStorage.setItem('cookieClicker', encode(JSON.stringify(this.state)))
     });
@@ -162,7 +176,12 @@ class App extends Component {
   //Component Lifecycle
   componentDidMount() {
     this.cookie_per_second_timer = setInterval(this.cookiePerSecondClick, 100);
-    this.notification_top_show = false;
+    this.setState({
+      notification_top_show: false,
+      notification_left_show: false,
+      notification_top_text: '',
+      notification_left_text: ''
+    })
   }
 
   componentWillUnmount() {
@@ -172,7 +191,19 @@ class App extends Component {
 
   render() {
 
-    const {cookie_amount, player_name, player_level, items, cookie_per_second_value, achievements} = this.state;
+    const {
+      cookie_amount, 
+      player_name, 
+      player_level, 
+      items, 
+      products,
+      cookie_per_second_value, 
+      achievements,
+      notification_top_text,
+      notification_top_show,
+      notification_left_text,
+      notification_left_show
+    } = this.state;
 
     document.title = parseInt(cookie_amount, 10).toLocaleString() + " cookies | Cookie Clicker";
 
@@ -180,13 +211,13 @@ class App extends Component {
       <div className="container">
 
         <NotificationTop 
-          notification_text={this.notification_top_text} 
-          notification_show={this.notification_top_show}
+          notification_text={notification_top_text} 
+          notification_show={notification_top_show}
         />
 
         <NotificationLeft 
-          notification_text={this.notification_left_text} 
-          notification_show={this.notification_left_show}
+          notification_text={notification_left_text} 
+          notification_show={notification_left_show}
         />
 
         <Header 
@@ -200,6 +231,7 @@ class App extends Component {
           cookie_amount = {cookie_amount}
           items = {items}
           onClick = {this.cookieBuyItem}
+          products = {products}
         />
 
         <ClickBoard 

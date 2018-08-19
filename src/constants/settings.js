@@ -15,6 +15,12 @@ const _SETTINGS = {
     cookie_gold_time_duration: 10,
     notification_show: false,
     items_buy_counter: 0,
+    cookie_gold_time_active: false,
+    notification_top_show: false,
+    notification_top_text: '',
+    notification_left_show: false,
+    notification_left_text: 'Gold Time',
+    products: [],
     items: [],
     achievements: []
 }
