@@ -7,7 +7,15 @@ import Footer from './Footer/Footer';
 import {NotificationTop, NotificationLeft} from './Notification/Notification';
 
 import _SETTINGS from '../constants/settings';
-import { checkSettingsImport, buyItem, levelCalculation, chanceCalculation, achievementsChecker, encode, decode } from './libs';
+import { 
+  checkSettingsImport, 
+  buyItem, 
+  levelCalculation, 
+  chanceCalculation, 
+  achievementsChecker, 
+  encode, 
+  decode 
+} from './libs';
 
 class App extends Component {
   constructor(){
@@ -31,7 +39,7 @@ class App extends Component {
     let temp_per_sec_click = this.state.cookie_per_second_value;
     clearInterval(this.cookie_per_second_timer);
     this.setState({ 
-      cookie_per_second_value: this.state.cookie_gold_time_value,
+      cookie_per_second_value: temp_per_sec_click + this.state.cookie_gold_time_value,
       cookie_gold_time_active: true,
       notification_left_show: true,
       notification_left_text: 'Golden Time!'

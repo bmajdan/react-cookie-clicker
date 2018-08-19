@@ -3,12 +3,20 @@
 .shop{
     grid-area: shop;
     text-align: left;
+    border-left: 2px solid black;
+    background: $background-shop;
+    position: relative;
+}
+
+.shop__container{
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+    padding-bottom: 100px;
     padding-left: 1em;
     padding-right: 1em;
-    border-left: 2px solid black;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background: $background-shop;
+    width: 100%;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
 .shop__header{
@@ -16,6 +24,7 @@
     width: auto;
     display: inline-block;
     padding-right: 40px;
+    margin-left: 1em;
     border-bottom: 2px solid black;
 }
 
@@ -29,6 +38,7 @@
     border: 1.5px solid black;
     margin-bottom: 10px;
     cursor: pointer;
+    position: static;
 }
 
 .shop__product--disabled{
@@ -42,7 +52,7 @@
 
 .shop__product__information{
     box-sizing: border-box;
-    visibility: hidden;
+    display: none;
     width: 300px;
     height: 150px;
     background-color: $tooltip-color;
@@ -51,10 +61,7 @@
     border: 1.5px solid black;
     padding: 20px;
     position: absolute;
-    top: inherit;
-    left: inherit;
-    transform: translate(-300px, -0.5px);
-    z-index: 999;
+    z-index: 10;
 }
 
 .shop__product__information__icon{
@@ -62,7 +69,7 @@
 }
 
 .shop__product:hover .shop__product__information{
-    visibility: visible;
+    display: block;
 }
 
 .shop__product__image{

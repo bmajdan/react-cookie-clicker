@@ -3,13 +3,10 @@
 .achievements{
     grid-area: achievements;
     text-align: left;
-    padding-left: 2em;
-    padding-right: 2em;
     border-top: 2px solid black;
-    overflow-x: hidden;
-    overflow-y: scroll;
     background: $background-secondary;
     font-weight: normal;
+    position: relative;
 }
 
 .achievements__header{
@@ -17,6 +14,7 @@
     width: auto;
     display: inline-block;
     padding-right: 40px;
+    margin-left: 1em;
     border-bottom: 2px solid black;
 }
 
@@ -27,6 +25,15 @@
     column-gap: 20px;
     grid-template-columns: repeat(10, auto);
     grid-template-rows: auto auto;
+
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+    padding-bottom: 100px;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
 .achievements__item{
@@ -39,6 +46,7 @@
     justify-content: center;
     cursor: pointer;
     background: $milk-color;
+    position: static;
 }
 
 .achievements__item__image__icon{
@@ -47,7 +55,7 @@
 
 .achievements__item__information{
     box-sizing: border-box;
-    visibility: hidden;
+    display: none;
     width: 300px;
     height: 150px;
     background-color: $tooltip-color;
@@ -56,10 +64,7 @@
     border: 1.5px solid black;
     padding: 20px;
     position: absolute;
-    top: inherit;
-    left: inherit;
-    transform: translate(116px, -107px);
-    z-index: 1;
+    z-index: 10;
 }
 
 .achievements__item__information__image__icon{
@@ -71,7 +76,7 @@
 }
 
 .achievements__item:hover .achievements__item__information{
-    visibility: visible;
+    display: block;
 }
 
 .achievements__item__value{

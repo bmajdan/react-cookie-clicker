@@ -69,8 +69,10 @@ class Shop extends Component {
         return (
             <div className='shop'>
                 <h1 className='shop__header'>Shop:</h1>
-
-                {products_containter}
+                
+                <div className="shop__container">
+                    {products_containter}
+                </div>
             </div>
         );
     }

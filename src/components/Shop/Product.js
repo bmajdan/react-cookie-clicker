@@ -12,6 +12,16 @@ class Product extends Component {
             this.props.onClick(this.props.options.name, this.props.options.start_price);
     }
 
+    componentDidMount = () => {
+        let element = this.refs.shop_product;
+        element.addEventListener('mouseover', () => {
+            let children = element.children[0];
+            let rect = element.getBoundingClientRect();
+            children.style.top = rect.top + 'px'
+            children.style.left = '-283px'
+        })
+    }
+
     render() {
 
         const { name, start_price, icon, icon_var, description } = this.props.options;
@@ -21,6 +31,7 @@ class Product extends Component {
 
         return (
             <div 
+                ref='shop_product'
                 onClick={this.onClickHandler} 
                 className={
                     !disabled ? 

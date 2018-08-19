@@ -4,6 +4,21 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import * as Icons from '@fortawesome/free-solid-svg-icons'
 
 class Achievement extends Component {
+
+    componentDidMount = () => {
+        let element = this.refs.achievement_item;
+        element.addEventListener('mouseover', () => {
+            let children = element.children[0];
+
+            if(children){
+                let rect = element.getBoundingClientRect();
+                children.style.top = '-55px'
+                children.style.left = rect.left + 'px'
+            }
+            
+        })
+    }
+
     render() {
 
         const { name, icon, icon_var, description, value } = this.props.options;
@@ -30,7 +45,7 @@ class Achievement extends Component {
         const achievement_body_disabled = (<React.Fragment>???</React.Fragment>)
 
         return (
-            <div className={ !disabled ? 'achievements__item ': 'achievements__item achievements__item--disabled'}>
+            <div ref='achievement_item' className={ !disabled ? 'achievements__item ': 'achievements__item achievements__item--disabled'}>
                 {!disabled ? achievement_body : achievement_body_disabled}
             </div>
         );
