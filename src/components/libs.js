@@ -26,7 +26,7 @@ export const buyItem = (item, price, items) => {
         return {
             item: data,
             price: price,
-            per_sec_multi: updatePerSecond([{name: item, count: 1}])
+            per_sec_multi: updatePerSecond(data)
         }
     }else{
         return {
